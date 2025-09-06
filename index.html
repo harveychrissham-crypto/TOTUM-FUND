@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Totum Fund</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#3b82f6">
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+</head>
+<body class="p-4 md:p-8">
+    <nav class="app-nav glass-effect rounded-2xl shadow-lg mb-6">
+        <div id="nav-container" class="flex justify-between w-full">
+            <template id="nav-item-template">
+                <div class="nav-item" data-page="">
+                    <i class=""></i>
+                    <span></span>
+                </div>
+            </template>
+        </div>
+    </nav>
+    <div id="app-container">
+        <div id="home-page" class="w-[100vw] flex-shrink-0 p-4">
+            <h1 class="text-3xl font-bold">Home</h1>
+            <button onclick="addTransaction()" class="cta-btn text-white px-4 py-2 rounded-lg mt-4">+ Add Transaction</button>
+            <div id="transactions" class="mt-4"></div>
+        </div>
+        <div id="budgets-page" class="w-[100vw] flex-shrink-0 p-4">
+            <h1 class="text-3xl font-bold">Budgets</h1>
+            <button onclick="addBudget()" class="cta-btn text-white px-4 py-2 rounded-lg mt-4">+ Add Budget</button>
+            <div id="budgets" class="mt-4"></div>
+        </div>
+        <div id="savings-page" class="w-[100vw] flex-shrink-0 p-4">
+            <h1 class="text-3xl font-bold">Savings</h1>
+            <button onclick="addSaving()" class="cta-btn text-white px-4 py-2 rounded-lg mt-4">+ Add Saving Goal</button>
+            <div id="savings" class="mt-4"></div>
+        </div>
+        <div id="assistant-page" class="w-[100vw] flex-shrink-0 p-4">
+            <h1 class="text-3xl font-bold">AI Assistant</h1>
+            <input id="aiInput" class="w-full p-2 border rounded mt-4" placeholder="Ask Totum AI..." />
+            <button onclick="askAI()" class="cta-btn text-white px-4 py-2 rounded-lg mt-2">Send</button>
+            <div id="aiResponse" class="mt-4 p-3 glass-card"></div>
+        </div>
+        <div id="profile-page" class="w-[100vw] flex-shrink-0 p-4">
+            <h1 class="text-3xl font-bold">Profile</h1>
+            <p id="userId" class="mt-2"></p>
+        </div>
+    </div>
+    <script src="app.js"></script>
+    <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js")
+        .then(() => console.log("✅ Service Worker registered"))
+        .catch(err => console.error("SW registration failed:", err));
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+# Node.js dependencies
+node_modules/
+
+# Firebase cache and local config
+.firebase/
+.firebaserc
+firebase-debug.log
+
+# VS / Visual Studio files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+dist/
+build/
+
+# MacOS / Windows system files
+.DS_Store
+Thumbs.db
+
+# GitHub workflows (optional, if you want to ignore local workflow changes)
+.github/workflows/
